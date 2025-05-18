@@ -6,23 +6,19 @@ public actor KVStore {
     
     private var modelContext: ModelContext
     private var consoleLoggingEnabled: Bool
-    private let jsonDecoder: JSONDecoder
-    private let jsonEncoder: JSONEncoder
 
     /// Initializes a new instance of `KVStore`.
     /// - Parameters:
     ///  - name: The name of the store. Default is `kv_store`.
     ///  - inMemory: If `true`, the store will be stored in memory only. Default is `false`.
     ///  - consoleLoggingEnabled: If `true`, console logging will be enabled. Default is `false`.
-    init(name: String = "kv_store", inMemory: Bool = false, consoleLoggingEnabled: Bool = false) {
+    public init(name: String = "kv_store", inMemory: Bool = false, consoleLoggingEnabled: Bool = false) {
         let schema = Schema([KeyValueModel.self])
         let modelConfiguration = ModelConfiguration(name, schema: schema, isStoredInMemoryOnly: inMemory)
         do {
             let modelContainer = try ModelContainer(for: schema, configurations: modelConfiguration)
             self.modelContext = ModelContext(modelContainer)
             self.consoleLoggingEnabled = consoleLoggingEnabled
-            self.jsonDecoder = JSONDecoder()
-            self.jsonEncoder = JSONEncoder()
         } catch let error {
             fatalError(error.localizedDescription)
         }
@@ -61,7 +57,7 @@ public actor KVStore {
     public func getValue<T: Codable>(_ type: T.Type, key: String) -> T? {
         do {
             guard let model = try self.fetchModel(key: key) else { return nil }
-            let decodedData = try jsonDecoder.decode(type, from: model.value)
+            let decodedData = try JSONDecoder().decode(type, from: model.value)
             return decodedData
         } catch let error {
             logError(error)
@@ -76,7 +72,7 @@ public actor KVStore {
     /// - Note: Updates the value if the key already exists.
     public func setValue<T: Codable>(key: String, value: T) {
         do {
-            let encodedData = try jsonEncoder.encode(value)
+            let encodedData = try JSONEncoder().encode(value)
             let model = try fetchModel(key: key)
             if let model {
                 model.value = encodedData
