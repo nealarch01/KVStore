@@ -1,6 +1,7 @@
 import Testing
 @testable import KVStore
 
+@Suite(.serialized)
 struct KVStoreTests {
     let kvStore: KVStore
     
