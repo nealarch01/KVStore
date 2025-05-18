@@ -5,6 +5,13 @@ import PackageDescription
 
 let package = Package(
     name: "KVStore",
+    platforms: [
+        .iOS(.v18),
+        .macOS(.v15),
+        .watchOS(.v11),
+        .tvOS(.v18),
+        .visionOS(.v2)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -16,6 +23,9 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "KVStore"),
-
+        .testTarget(
+            name: "KVStoreTests",
+            dependencies: ["KVStore"]
+        ),
     ]
 )
