@@ -22,8 +22,8 @@ jobs:
         swift-version: '6.1.0'
 #    - name: Build
 #      run: swift build
-    - name: Swift version
-      run: swift --version
+    - name: xcodebuild version
+      run: xcodebuild -version
     - name: Run tests
       run: xcodebuild test -scheme KVStoreTests -destination "platform=macOS" SWIFT_VERSION=6.1
 
