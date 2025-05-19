@@ -27,5 +27,5 @@ jobs:
       with:
         xcode-version: '16.2.0'
     - name: Run tests
-      run: xcodebuild test -scheme KVStoreTests -destination "platform=iOS Simulator,OS=18.0,name=iPhone 15" SWIFT_VERSION=6.1
+      run: xcodebuild test -scheme KVStoreTests -destination "platform=iOS Simulator,OS=18.2,name=iPhone 16" SWIFT_VERSION=6.1
 
