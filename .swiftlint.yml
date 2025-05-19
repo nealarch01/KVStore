@@ -1,0 +1,29 @@
+opt_in_rules:
+- implicit_return
+- force_unwrapping
+- empty_count
+- yoda_condition
+- toggle_bool
+- static_operator
+- direct_return
+
+disabled_rules:
+- trailing_whitespace
+- for_where
+- multiple_closures_with_trailing_closure
+- empty_parentheses_with_trailing_closure
+
+identifier_name:
+  excluded:
+    - i
+    - j
+    - id
+    - x
+    - y
+    - z
+  
+line_length:
+    ignores_function_declarations: true
+    ignores_comments: true
+    ignores_urls: true
+

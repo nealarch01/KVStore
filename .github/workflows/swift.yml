@@ -4,9 +4,11 @@
 name: Swift
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
+    paths:
+      - '.swiftlint.yml'
+      - '**/*.swift'
+  push:
     branches: [ "main" ]
 
 jobs:
@@ -16,14 +18,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up Swift
       uses: swift-actions/setup-swift@v2
       with:
         swift-version: '6.1.0'
-    - name: Select Xcode
+
+    - name: Setup Xcode
       uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: '16.2.0'
+
+    - name: SwiftLint
+      run: norio-nomura/action-swiftlint@3.2.1
+      with:
+        - args: --strict
+
     - name: Run tests
       run: xcodebuild test -scheme KVStoreTests -destination "platform=iOS Simulator,OS=18.2,name=iPhone 16" SWIFT_VERSION=6.1
 
