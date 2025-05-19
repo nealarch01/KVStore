@@ -1,13 +1,14 @@
 # KVStore
-A lightweight, thread-safe persistent key-value storage built on top of SwiftData.
 [![Swift](https://github.com/nealarch01/KVStore/actions/workflows/swift.yml/badge.svg)](https://github.com/nealarch01/KVStore/actions/workflows/swift.yml)
 
+A lightweight, thread-safe persistent key-value storage built on top of SwiftData.
+
 ## Supported Platforms:
-- iOS 18
-- macOS 15
-- watchOS 11
-- visionOS 2
-- tvOS 2
+- iOS 18.0+
+- macOS 15.0+
+- watchOS 11.0+
+- visionOS 2.0+
+- tvOS 2.0+
 
 ## Installation
 To install this package, use Swift Package Manager.
