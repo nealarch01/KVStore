@@ -23,5 +23,5 @@ jobs:
 #    - name: Build
 #      run: swift build
     - name: Run tests
-      run: xcodebuild test -scheme KVStoreTests -destination "platform=macOS" SWIFT_VERSION=5.9
+      run: xcodebuild test -scheme KVStoreTests -destination "platform=macOS" SWIFT_VERSION=6.1
 
