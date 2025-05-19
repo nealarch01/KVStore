@@ -14,7 +14,13 @@ public actor KVStore {
     ///  - consoleLoggingEnabled: If `true`, console logging will be enabled. Default is `false`.
     public init(name: String = "kv_store", inMemory: Bool = false, consoleLoggingEnabled: Bool = false) {
         let schema = Schema([KeyValueModel.self])
-        let modelConfiguration = ModelConfiguration(name, schema: schema, isStoredInMemoryOnly: inMemory)
+        let modelConfiguration = ModelConfiguration(
+            name,
+            schema: schema,
+            isStoredInMemoryOnly: inMemory,
+            groupContainer: .none,
+            cloudKitDatabase: .none
+        )
         do {
             let modelContainer = try ModelContainer(for: schema, configurations: modelConfiguration)
             self.modelContext = ModelContext(modelContainer)

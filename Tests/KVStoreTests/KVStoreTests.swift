@@ -1,11 +1,12 @@
 import Testing
 @testable import KVStore
 
+@Suite(.serialized)
 struct KVStoreTests {
     let kvStore: KVStore
     
     init() {
-        self.kvStore = KVStore(inMemory: true, consoleLoggingEnabled: true)
+        self.kvStore = KVStore(name: "kv_store_tests", inMemory: true, consoleLoggingEnabled: true)
     }
     
     @Test
