@@ -23,5 +23,5 @@ jobs:
     - name: Build
       run: swift build
     - name: Run tests
-      run: xcodebuild -scheme KVStoreTests -destination "platform=macOS"
+      run: xcodebuild test -scheme KVStoreTests -destination "platform=macOS"
 
