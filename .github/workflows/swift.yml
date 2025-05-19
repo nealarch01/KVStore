@@ -31,7 +31,7 @@ jobs:
         xcode-version: '16.2.0'
 
     - name: SwiftLint
-      run: norio-nomura/action-swiftlint@3.2.1
+      uses: norio-nomura/action-swiftlint@3.2.1
       with:
         args: --strict
 
