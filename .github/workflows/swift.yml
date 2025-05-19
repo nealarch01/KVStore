@@ -33,7 +33,7 @@ jobs:
     - name: SwiftLint
       run: norio-nomura/action-swiftlint@3.2.1
       with:
-        - args: --strict
+        args: --strict
 
     - name: Run tests
       run: xcodebuild test -scheme KVStoreTests -destination "platform=iOS Simulator,OS=18.2,name=iPhone 16" SWIFT_VERSION=6.1
