@@ -1,4 +1,4 @@
-# KVStore
+# KVStore [![Tests](https://github.com/nealarch01/KVStore/actions/workflows/swift.yml/badge.svg)](https://github.com/nealarch01/KVStore/actions/workflows/swift.yml)
 A lightweight, thread-safe persistent key-value storage built on top of SwiftData.
 
 ## Supported Platforms:
