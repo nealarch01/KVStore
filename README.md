@@ -1,12 +1,40 @@
-# KVStore [![Tests](https://github.com/nealarch01/KVStore/actions/workflows/swift.yml/badge.svg)](https://github.com/nealarch01/KVStore/actions/workflows/swift.yml)
+
+<h1>
+KVStore 
+  <img src="https://img.shields.io/badge/Swift-6.0-f05138?style=flat&labelColor=grey&logo=swift" alt="Badge">
+  <a href="https://github.com/nealarch01/KVStore/actions/workflows/swift.yml">
+    <img src="https://github.com/nealarch01/KVStore/actions/workflows/swift.yml/badge.svg" alt="Swift">
+  </a>
+</h1>
 A lightweight, thread-safe persistent key-value storage built on top of SwiftData.
 
 ## Supported Platforms:
-- iOS 18
-- macOS 15
-- watchOS 11
-- visionOS 2
-- tvOS 2
+<table>
+  <tr>
+    <th>OS</th>
+    <th>Minimum Target Version</th>
+  </tr>
+  <tr>
+    <td>iOS</td>
+    <td>18.0</td>
+  </tr>
+    <tr>
+    <td>macOS</td>
+    <td>15.0</td>
+  </tr>
+  <tr>
+    <td>watchOS</td>
+    <td>11.0</td>
+  </tr>
+  <tr>
+    <td>visionOS</td>
+    <td>2.0</td>
+  </tr>
+  <tr>
+    <td>tvOS</td>
+    <td>18.0</td>
+  </tr>
+</table>
 
 ## Installation
 To install this package, use Swift Package Manager.
