@@ -6,7 +6,8 @@ KVStore
     <img src="https://github.com/nealarch01/KVStore/actions/workflows/swift.yml/badge.svg" alt="Swift">
   </a>
 </h1>
-A lightweight, thread-safe persistent key-value storage built on top of SwiftData.
+
+A lightweight and thread-safe persistent key-value storage built on top of SwiftData.
 
 ## Supported Platforms:
 <table>
@@ -39,6 +40,11 @@ A lightweight, thread-safe persistent key-value storage built on top of SwiftDat
 ## Installation
 To install this package, use Swift Package Manager.
 
-1. In Xcode, select **File > Add Package Dependencies** in the menu bar.
-2. In the dialog box, enter `https://github.com/nealarch01/KVStore` in the search bar.
-3. Add it to your app target(s).
+1. Open Xcode and in the menu bar, select **File > Add Package Dependencies**.
+2. In the dialog box, paste `https://github.com/nealarch01/KVStore` in the search bar at the top right.
+3. Lastly, add the package to your app's target(s).
+
+## Contributions
+All contributions are welcome!
+- **Ideas/Bugs**: If you have an idea for a new feature, or encountered a bug, open a new Issue. Describe it clearly and include any steps to reproduce if it's a bug.
+- **Pull Requests**: keep them simple and handle one feature/bug at a time. Additionally, make sure the title and description is clear and descriptive.
