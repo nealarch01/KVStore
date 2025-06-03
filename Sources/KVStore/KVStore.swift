@@ -10,14 +10,14 @@ public actor KVStore {
     /// Initializes a new instance of `KVStore`.
     /// - Parameters:
     ///  - name: The name of the store. Default is `kv_store`.
-    ///  - inMemory: If `true`, the store will be stored in memory only. Default is `false`.
+    ///  - isStoredInMemoryOnly: If `true`, the store will be stored in memory only. Default is `false`.
     ///  - consoleLoggingEnabled: If `true`, console logging will be enabled. Default is `false`.
-    public init(name: String = "kv_store", inMemory: Bool = false, consoleLoggingEnabled: Bool = false) {
+    public init(name: String = "kv_store", isStoredInMemoryOnly: Bool = false, consoleLoggingEnabled: Bool = false) {
         let schema = Schema([KeyValueModel.self])
         let modelConfiguration = ModelConfiguration(
             name,
             schema: schema,
-            isStoredInMemoryOnly: inMemory,
+            isStoredInMemoryOnly: isStoredInMemoryOnly,
             groupContainer: .none,
             cloudKitDatabase: .none
         )
