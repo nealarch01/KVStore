@@ -43,13 +43,13 @@ public actor KVStore {
     
     private func log(_ message: String, _ function: String = #function) {
         if consoleLoggingEnabled {
-            print("💾 KVStore: \(message)")
+            print("KVStore: \(message)")
         }
     }
     
     private func logError(_ error: Error, _ function: String = #function) {
         if consoleLoggingEnabled {
-            print("💾 KVStore Error in \(function): \(error.localizedDescription)")
+            print("KVStore Error in \(function): \(error.localizedDescription)")
         }
     }
     
