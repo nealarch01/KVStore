@@ -1,4 +1,3 @@
-
 <h1>
 KVStore 
   <img src="https://img.shields.io/badge/Swift-6.0-f05138?style=flat&labelColor=grey&logo=swift" alt="Badge">
@@ -12,7 +11,7 @@ A lightweight and thread-safe persistent key-value storage built on top of Swift
 ## Supported Platforms:
 <table>
   <tr>
-    <th>OS</th>
+    <th>Platform</th>
     <th>Minimum Target Version</th>
   </tr>
   <tr>
@@ -93,20 +92,7 @@ let settings = ["theme": "dark", "language": "en"]
 await store.setValue(key: "app_settings", value: settings)
 ```
 
-### Configuration Options
-```swift
-// In-memory store for testing
-let memoryStore = KVStore(
-    name: "test_store",
-    isStoredInMemoryOnly: true,
-    consoleLoggingEnabled: true
-)
-
-// Named persistent store
-let userPrefsStore = KVStore(name: "user_preferences")
-```
-
 ## Contributions
 All contributions are welcome!
 - **Ideas/Bugs**: If you have an idea for a new feature, or encountered a bug, open a new Issue. Describe it clearly and include any steps to reproduce if it's a bug.
-- **Pull Requests**: keep them simple and handle one feature/bug at a time. Additionally, make sure the title and description is clear and descriptive.
+- **Pull Requests**: Keep them simple and handle one feature/bug at a time. Additionally, make sure the title and description is clear and descriptive.
