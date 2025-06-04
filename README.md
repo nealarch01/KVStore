@@ -44,6 +44,68 @@ To install this package, use Swift Package Manager.
 2. In the dialog box, paste `https://github.com/nealarch01/KVStore` in the search bar at the top right.
 3. Lastly, add the package to your app's target(s).
 
+## Usage Examples
+### Basic Usage
+```swift
+// Create a KVStore instance
+let store = KVStore()
+
+// Store simple values
+await store.setValue(key: "username", value: "john_doe")
+await store.setValue(key: "user_id", value: 12345)
+await store.setValue(key: "is_premium", value: true)
+
+// Retrieve values
+let username = await store.getValue(String.self, key: "username") // "john_doe"
+let userId = await store.getValue(Int.self, key: "user_id") // 12345
+let isPremium = await store.getValue(Bool.self, key: "is_premium") // true
+```
+
+### Complex Objects
+```swift
+struct User: Codable {
+    let id: Int
+    let name: String
+    let email: String
+}
+
+// Store a custom object
+let user = User(id: 1, name: "Alice", email: "alice@example.com")
+await store.setValue(key: "current_user", value: user)
+
+// Retrieve the object
+if let savedUser = await store.getValue(User.self, key: "current_user") {
+    print("Welcome back, \(savedUser.name)!")
+}
+```
+
+### Arrays and Collections
+```swift
+// Store arrays
+let favorites = ["apple", "banana", "orange"]
+await store.setValue(key: "favorite_fruits", value: favorites)
+
+// Retrieve arrays
+let savedFavorites = await store.getValue([String].self, key: "favorite_fruits")
+
+// Store dictionaries
+let settings = ["theme": "dark", "language": "en"]
+await store.setValue(key: "app_settings", value: settings)
+```
+
+### Configuration Options
+```swift
+// In-memory store for testing
+let memoryStore = KVStore(
+    name: "test_store",
+    isStoredInMemoryOnly: true,
+    consoleLoggingEnabled: true
+)
+
+// Named persistent store
+let userPrefsStore = KVStore(name: "user_preferences")
+```
+
 ## Contributions
 All contributions are welcome!
 - **Ideas/Bugs**: If you have an idea for a new feature, or encountered a bug, open a new Issue. Describe it clearly and include any steps to reproduce if it's a bug.
