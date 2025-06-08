@@ -4,8 +4,8 @@ import SwiftData
 /// A thread-safe and light-weight persistent key-value store built on top of SwiftData.
 public actor KVStore {
     
-    private var modelContext: ModelContext
-    private var consoleLoggingEnabled: Bool
+    private let modelContext: ModelContext
+    private let consoleLoggingEnabled: Bool
     
     private let jsonEncoder = JSONEncoder()
     private let jsonDecoder = JSONDecoder()
