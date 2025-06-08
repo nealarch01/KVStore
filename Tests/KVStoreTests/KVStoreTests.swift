@@ -60,7 +60,7 @@ struct KVStoreTests {
     }
     
     @Test
-    func testGetSetDeletaeIntValue() async {
+    func testGetSetDeleteIntValue() async {
         let key = "testIntKey"
         
         // Test getting the initial value (which should be nil).
@@ -155,6 +155,25 @@ struct KVStoreTests {
         // Test getting the value with the correct type.
         let correctValue = await kvStore.getValue(String.self, key: key)
         #expect(correctValue == helloWorld)
+    }
+    
+    @Test
+    func testGetValuesWithMultipleKeys() async {
+        let keys = ["key1", "key2", "key3"]
+        let values = ["Value 1", "Value 2", "Value 3"]
+        
+        // Set multiple values.
+        for (index, key) in keys.enumerated() {
+            await kvStore.setValue(key: key, value: values[index])
+        }
+        
+        // Get values for multiple keys.
+        let fetchedValues: [String]? = await kvStore.getValues(String.self, keys: keys)
+        
+        // Sort the values as the order might not be guaranteed.
+        let sortedValues = fetchedValues?.sorted()
+        
+        #expect(sortedValues == values.sorted())
     }
     
 }
