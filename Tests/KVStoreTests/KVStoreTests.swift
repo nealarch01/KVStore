@@ -6,7 +6,7 @@ struct KVStoreTests {
     let kvStore: KVStore
     
     init() {
-        self.kvStore = KVStore(name: "kv_store_tests", isStoredInMemoryOnly: true, consoleLoggingEnabled: true)
+        self.kvStore = KVStore(name: "kv_store_tests", isStoredInMemoryOnly: true)
     }
     
     @Test
@@ -159,21 +159,22 @@ struct KVStoreTests {
     
     @Test
     func testGetValuesWithMultipleKeys() async {
-        let keys = ["key1", "key2", "key3"]
-        let values = ["Value 1", "Value 2", "Value 3"]
+        let keyValuePairs = [
+            "key1": "Value 1",
+            "key2": "Value 2",
+            "key3": "Value 3"
+        ]
         
         // Set multiple values.
-        for (index, key) in keys.enumerated() {
-            await kvStore.setValue(key: key, value: values[index])
+        for (key, value) in keyValuePairs {
+            await kvStore.setValue(key: key, value: value)
         }
         
         // Get values for multiple keys.
-        let fetchedValues: [String]? = await kvStore.getValues(String.self, keys: keys)
+        let keys = Array(keyValuePairs.keys)
+        let fetchedValues: [String: String]? = await kvStore.getValues(String.self, keys: keys)
         
-        // Sort the values as the order might not be guaranteed.
-        let sortedValues = fetchedValues?.sorted()
-        
-        #expect(sortedValues == values.sorted())
+        #expect(fetchedValues == keyValuePairs)
     }
     
 }
